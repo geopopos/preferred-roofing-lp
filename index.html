@@ -86,19 +86,19 @@
           <div class="textbox question question2">
             <h1>What is your estimated credit score <br>(Just a guess is fine)?</h1>
             <div class="box">
-              <a href="">Poor (400-600)</a>
-              <a href="">Fair (600-650)</a>
-              <a href="">Good (650-720)</a>
-              <a href="">Great (720+)</a>
+              <a href="" onclick="gtag('event', 'credit_selected', {'survey_item': 'credit_score', 'option_selected': 'Poor (400-600)'});">Poor (400-600)</a>
+              <a href="" onclick="gtag('event', 'credit_selected', {'survey_item': 'credit_score', 'option_selected': 'Fair (600-650)'});">Fair (600-650)</a>
+              <a href="" onclick="gtag('event', 'credit_selected', {'survey_item': 'credit_score', 'option_selected': 'Good (650-720)'});">Good (650-720)</a>
+              <a href="" onclick="gtag('event', 'credit_selected', {'survey_item': 'credit_score', 'option_selected': 'Great (720+)'});">Great (720+)</a>
             </div>
           </div>
           <div class="textbox question question3">
             <h1>What is the timing of your project?</h1>
             <div class="box">
-              <a href="">URGENT</a>
-              <a href="">Less than 3 Weeks</a>
-              <a href="">More than 3 Weeks</a>
-              <a href="">Timing is Flexible</a>
+              <a href="" onclick="gtag('event', 'timing_selected', {'survey_item': 'project_timing', 'option_selected': 'URGENT'});">URGENT</a>
+              <a href="" onclick="gtag('event', 'timing_selected', {'survey_item': 'project_timing', 'option_selected': 'Less than 3 Weeks'});">Less than 3 Weeks</a>
+              <a href="" onclick="gtag('event', 'timing_selected', {'survey_item': 'project_timing', 'option_selected': 'More than 3 Weeks'});">More than 3 Weeks</a>
+              <a href="" onclick="gtag('event', 'timing_selected', {'survey_item': 'project_timing', 'option_selected': 'Timing is Flexible'});">Timing is Flexible</a>
             </div>
           </div>
           <div class="textbox question question4 form_question">
@@ -109,7 +109,7 @@
                   <input type="text" name="" id="" placeholder="i.e. John" required />
                   <input type="text" name="" id="" placeholder="i.e. Smith" required />
                 </div>
-                <button class="isNotValid">NEXT</button>
+                <button class="isNotValid" onclick="gtag('event', 'name_entered', {'survey_item': 'Full Name'});">NEXT</button>
               </form>
             </div>
           </div>
@@ -121,7 +121,7 @@
                 <div class="inputs">
                   <input type="email" name="" id="" placeholder="i.e. johnsmith@gmail.com" required />
                 </div>
-                <button class="isNotValid">NEXT</button>
+                <button class="isNotValid" onclick="gtag('event', 'email_entered', {'survey_item': 'Email'});">NEXT</button>
               </form>
             </div>
           </div>
@@ -133,7 +133,7 @@
                 <div class="inputs">
                   <input type="text" class="phonenumber" name="" id="" placeholder="Your phone number" minlength="8"  required />
                 </div>
-                <button class="isNotValid">NEXT</button>
+                <button class="isNotValid" onclick="gtag('event', 'phone_entered', {'survey_item': 'phone'});">NEXT</button>
               </form>
             </div>
           </div>
@@ -144,7 +144,7 @@
                 <div class="inputs">
                   <input type="text" name="" id="" placeholder="Your street address"  required />
                 </div>
-                <button class="isNotValid">NEXT</button>
+                <button class="isNotValid" onclick="gtag('event', 'address_entered', {'survey_item': 'Address'});">NEXT</button>
               </form>
             </div>
           </div>
@@ -169,6 +169,7 @@
     questionDict = {};
 
     function submitForm() {
+      gtag('event', 'generate_lead', {'survey_item': 'form_submitted'});
       fetch('https://hooks.zapier.com/hooks/catch/5597682/3y6d4f7/', {
 		    	method: 'POST',
 		    	headers: {
